@@ -1,0 +1,47 @@
+header:
+  version: 13
+
+# The distro name as it is written into the `local.conf` of bitbake.
+distro: estalor
+
+repos:
+  meta-estalor:
+    path: "layers/meta-estalor"
+
+  meta-estalor-distro:
+    path: "layers/meta-estalor-distro"
+
+  poky:
+    url: "https://git.yoctoproject.org/git/poky"
+    refspec: mickledore
+    layers:
+      meta:
+    path: "sources/poky"
+
+  meta-openembedded:
+    url: "https://github.com/openembedded/meta-openembedded.git"
+    refspec: mickledore
+    layers:
+      meta-oe:
+    path: "sources/meta-openembedded"
+    
+local_conf_header:
+  estalor: |
+    DL_DIR = "/cache/downloads"
+    SSTATE_DIR = "/cache/sstate"
+    PACKAGE_CLASSES = "package_ipk"
+    INHERIT += "buildhistory"
+    BUILDHISTORY_COMMIT = "1"
+    USER_CLASSES ?= "buildstats"
+    PATCHRESOLVE = "noop"
+    BB_DISKMON_DIRS ??= "\
+      STOPTASKS,${TMPDIR},1G,100K \
+      STOPTASKS,${DL_DIR},1G,100K \
+      STOPTASKS,${SSTATE_DIR},1G,100K \
+      STOPTASKS,/tmp,100M,100K \
+      HALT,${TMPDIR},100M,1K \
+      HALT,${DL_DIR},100M,1K \
+      HALT,${SSTATE_DIR},100M,1K \
+      HALT,/tmp,10M,1K"
+    PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
+    CONF_VERSION = "2"
