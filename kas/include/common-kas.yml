@@ -5,6 +5,9 @@ header:
 distro: estalor
 
 repos:
+  meta-estalor:
+    path: "layers/meta-estalor"
+
   meta-estalor-distro:
     path: "layers/meta-estalor-distro"
 

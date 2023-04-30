@@ -7,4 +7,4 @@ header:
 machine: qemuarm64-a53
 
 target: 
-  - core-image-minimal
+  - estalor-debug-image
