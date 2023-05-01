@@ -8,3 +8,4 @@ machine: qemuarm64-a53
 
 target: 
   - estalor-debug-image
+  - estalor-qemuarm64-debug-bundle

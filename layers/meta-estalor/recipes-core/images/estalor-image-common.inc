@@ -3,6 +3,9 @@ inherit core-image
 IMAGE_INSTALL = "\
     packagegroup-core-boot \
     ${CORE_IMAGE_EXTRA_INSTALL} \
+    rauc \
+    openssh-sshd \
+    openssh-scp \
 "
 
 IMAGE_FEATURES = "\

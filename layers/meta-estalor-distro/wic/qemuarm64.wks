@@ -11,4 +11,4 @@ part --source bootimg-partition --ondisk vda --fstype vfat --label boot --active
 part --fixed-size 10M --ondisk vda --align 4096
 part --extra-space 50M --source rootfs --ondisk vda --fstype=ext4 --label root_a --align 4096
 part --extra-space 50M --source rootfs --ondisk vda --fstype=ext4 --label root_b --align 4096
-part --fixed-size 100M --source rootfs --ondisk vda --fstype=ext4 --label data --align 4096
+part --source rootfs --ondisk vda --fstype=ext4 --label data --align 4096
