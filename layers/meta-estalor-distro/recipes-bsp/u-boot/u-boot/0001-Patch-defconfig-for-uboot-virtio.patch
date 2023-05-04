@@ -1,4 +1,4 @@
-From 85967f92496a2e653ad66ef610ce0ddf6d2ce1e1 Mon Sep 17 00:00:00 2001
+From f5f4da9e87951f38b248eaefa4338d28bc96165e Mon Sep 17 00:00:00 2001
 From: Tom Geelen <tom.geelen@demcon.com>
 Date: Sat, 29 Apr 2023 00:03:11 +0200
 Subject: [PATCH] Patch defconfig for uboot virtio
@@ -10,7 +10,7 @@ Signed-off-by: Tom Geelen <tom.geelen@demcon.com>
  1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/configs/qemu_arm64_defconfig b/configs/qemu_arm64_defconfig
-index 4123338b8d..85313090a5 100644
+index 4123338b8d..6208bf8872 100644
 --- a/configs/qemu_arm64_defconfig
 +++ b/configs/qemu_arm64_defconfig
 @@ -35,7 +35,13 @@ CONFIG_CMD_PCI=y
@@ -21,7 +21,7 @@ index 4123338b8d..85313090a5 100644
 +CONFIG_BOOTCOMMAND="run bootcmd_virtio0"
 +CONFIG_ENV_IS_IN_FAT=y
 +CONFIG_ENV_FAT_INTERFACE="virtio"
-+CONFIG_ENV_FAT_DEVICE_AND_PART="0:1"
++CONFIG_ENV_FAT_DEVICE_AND_PART="0:2"
 +CONFIG_CMD_NVEDIT_LOAD=y
 +CONFIG_CMD_FAT=y
 +CONFIG_CMD_BOOTMENU=y

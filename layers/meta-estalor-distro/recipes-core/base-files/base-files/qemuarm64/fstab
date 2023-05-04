@@ -5,4 +5,5 @@ tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,stri
 tmpfs                /var/volatile        tmpfs      defaults              0  0
 
 LABEL=boot           /boot                vfat       defaults,nofail,noatime  0  0
+LABEL=uboot-env      /uboot-env           vfat       defaults,nofail,noatime  0  0
 LABEL=data           /data                auto       defaults,nofail,noatime  0  2

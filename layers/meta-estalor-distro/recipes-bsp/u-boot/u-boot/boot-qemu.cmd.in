@@ -1,4 +1,4 @@
-if test -e virtio 0:1 uboot.env; then env load; fi;
+if test -e virtio 0:2 uboot.env; then env load; fi;
 
 # Load the device tree
 fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs || setenv bootargs ${fallback_bootargs}
@@ -44,7 +44,7 @@ fi
 
 # Load the kernel
 fatload virtio 0:1 ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
-if test ! -e virtio 0:1 uboot.env; then saveenv; fi;
+if test ! -e virtio 0:2 uboot.env; then saveenv; fi;
 
 # Now actually boot the system
 echo "FDT Addr: ${fdt_addr}"
