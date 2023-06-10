@@ -29,14 +29,33 @@ $ sudo docker build --no-cache --tag "estalor-yocto:latest" .
 ```
 Note that when using a docker container with mounted volumes that PUID and GUID on the host and container should be identical. So you could also build it using:
 ```
-$ docker build --no-cache --build-arg "host_uid=$(id -u)" \
+$ sudo docker build --no-cache --build-arg "host_uid=$(id -u)" \
   --build-arg "host_gid=$(id -g)" --tag "estalor-yocto:latest" .
 ```
 
 After the build is constructed you can run the docker image from the root directory using: 
 ```
-$ sudo docker run -it --rm -v $PWD:/home/estalor -v /cache:/cache estalor-yocto:latest
+$ ssh yocto@localhost
 ```
-This should ensure all relevant directories are mounted.
+The password is `yocto`.
 
 # Running the build
+To build everything we use, as described `kas`.
+To kick off a build you can run:
+```
+$ python3 -m kas build kas/<image>.yml
+```
+There are several images available and they will be describe in the following sections.
+Furthermore there are the layers in the sources folder so if you can always do the normal way of using yoct by:
+```
+$ source sources/poky/oe-init-build-env
+```
+
+## Image: Estalor-qemuarm53
+One of the regular targets for the Estalor projects is a variety of Raspberry Pi 3 or 4 based products. To facilitate testing with this easily
+a qemu based image is created in order to do easy development.
+
+To run the image you can do the following:
+```
+$ runqemu tmp/deploy/images/qemuarm64-a53/estalor-debug-image-qemuarm64-a53.qemuboot.conf slirp wic nographic
+```
