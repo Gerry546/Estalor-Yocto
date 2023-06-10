@@ -11,6 +11,9 @@ repos:
   meta-estalor-distro:
     path: "layers/meta-estalor-distro"
 
+  meta-estalor-bsp:
+    path: "layers/meta-estalor-bsp"
+
   poky:
     url: "https://git.yoctoproject.org/git/poky"
     refspec: mickledore
