@@ -8,8 +8,11 @@ DEPENDS:append:qemuarm64-a53 = " \
 SRC_URI:append:qemuarm64-a53 = " \
     file://boot-qemu.cmd.in \
     file://fw_env.config \
-    file://0001-Patch-defconfig-for-uboot-virtio.patch \
+    file://0001-Enable-uboot-via-virtio.patch \
+    file://0001-cleaned-up-boot-commands.patch \
 "
+
+#     file://0001-Patch-defconfig-for-uboot-virtio.patch 
 
 do_configure:append:qemuarm64-a53() {
     sed -e 's/@@KERNEL_IMAGETYPE@@/${KERNEL_IMAGETYPE}/' \
