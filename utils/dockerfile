@@ -6,8 +6,18 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install gawk wget git diffstat \
     unzip texinfo gcc build-essential chrpath socat cpio python3 \
     python3-pip python3-pexpect xz-utils debianutils iputils-ping \
     python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
-    python3-subunit mesa-common-dev zstd liblz4-tool file locales sudo \
+    python3-subunit mesa-common-dev zstd liblz4-tool file locales sudo
+
+# Installs for Jenkins access to the container via ssh
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
     openssh-server openjdk-11-jdk
+
+# Installs for host tooling needed for running menuconfig
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    bison flex libncurses-dev
+
+# Remove all old stuff
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y autoremove
 
 # By default, Ubuntu uses dash as an alias for sh. Dash does not support the source command
 # needed for setting up Yocto build environments. Use bash as an alias for sh.
@@ -38,6 +48,7 @@ RUN echo ${USER_NAME}:${USER_NAME} | chpasswd
 
 WORKDIR /home/${USER_NAME}
 
+# Installing KAS for Yocto
 RUN pip3 install kas
 
 RUN service ssh start
