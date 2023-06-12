@@ -1,0 +1,24 @@
+From a044dab1283db25c4b0f32ce59f7f3e1e9bd444c Mon Sep 17 00:00:00 2001
+From: OpenEmbedded <oe.patch@oe>
+Date: Mon, 12 Jun 2023 21:48:33 +0000
+Subject: [PATCH] Updated Makefile for reterminal.dts
+
+Signed-off-by: OpenEmbedded <oe.patch@oe>
+---
+ arch/arm/boot/dts/overlays/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/overlays/Makefile b/arch/arm/boot/dts/overlays/Makefile
+index 0fab3056a939..2e4fe9db5083 100644
+--- a/arch/arm/boot/dts/overlays/Makefile
++++ b/arch/arm/boot/dts/overlays/Makefile
+@@ -283,7 +283,8 @@ dtbo-$(CONFIG_ARCH_BCM2835) += \
+ 	waveshare-can-fd-hat-mode-a.dtbo \
+ 	waveshare-can-fd-hat-mode-b.dtbo \
+ 	wittypi.dtbo \
+-	wm8960-soundcard.dtbo
++	wm8960-soundcard.dtbo \
++	reterminal.dtbo
+ 
+ targets += dtbs dtbs_install
+ targets += $(dtbo-y)
