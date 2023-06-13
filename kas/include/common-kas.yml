@@ -43,8 +43,6 @@ local_conf_header:
     DL_DIR = "/cache/downloads"
     SSTATE_DIR = "/cache/sstate"
     PACKAGE_CLASSES = "package_ipk"
-    INHERIT += "buildhistory"
-    BUILDHISTORY_COMMIT = "1"
     USER_CLASSES ?= "buildstats"
     PATCHRESOLVE = "noop"
     BB_DISKMON_DIRS ??= "\
