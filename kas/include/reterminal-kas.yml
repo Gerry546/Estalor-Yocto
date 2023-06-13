@@ -1,8 +1,2 @@
 header:
   version: 13
-
-repos:
-  meta-raspberrypi:
-    url: "https://git.yoctoproject.org/meta-raspberrypi"
-    refspec: master
-    path: "sources/meta-raspberrypi"

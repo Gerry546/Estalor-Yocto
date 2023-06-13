@@ -32,6 +32,11 @@ repos:
     url: "https://github.com/rauc/meta-rauc.git"
     refspec: mickledore
     path: "sources/meta-rauc"
+
+  meta-raspberrypi:
+    url: "https://git.yoctoproject.org/meta-raspberrypi"
+    refspec: master
+    path: "sources/meta-raspberrypi"
     
 local_conf_header:
   estalor: |
