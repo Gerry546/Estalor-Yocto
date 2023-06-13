@@ -30,6 +30,12 @@ pipeline {
                 sh 'rm -rf build'
             }
         }
+        stage('Clean Cache'){
+            steps {
+                echo 'Cleaning sstate cache'
+                sh './sources/poky/scripts/sstate-cache-management.sh --cache-dir=/cache/sstate --extra-layer=layers/meta-estalor-distro,layers/meta-estalor-distro,layers/meta-estalor -y -d -v'
+            }
+        }
     }
     post {
         success {
