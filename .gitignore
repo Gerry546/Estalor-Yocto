@@ -1,2 +1,3 @@
 .venv
 build
+layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/wpa_supplicant-nl80211-wlan0.conf

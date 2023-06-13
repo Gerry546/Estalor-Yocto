@@ -56,3 +56,4 @@ local_conf_header:
       HALT,/tmp,10M,1K"
     PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
     CONF_VERSION = "2"
+    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"

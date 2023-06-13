@@ -8,7 +8,23 @@ IMAGE_INSTALL = "\
     openssh-scp \
 "
 
+IMAGE_INSTALL:append:reterminal = "\
+    kernel-modules \
+    linux-firmware-rpidistro-bcm43455 \
+    weston \
+    weston-init \
+"
+
+#TODO
+# reterminal-screen-mod
+# reterminal-lightsensor-mod
+# reterminal-accelerometer-mod
+
 IMAGE_FEATURES = "\
+"
+
+IMAGE_FEATURES:append:reterminal = "\
+    weston \
 "
 
 IMAGE_LINGUAS = "\
