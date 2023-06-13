@@ -14,7 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 # Installs for host tooling needed for running menuconfig
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    bison flex libncurses-dev tmux
+    bison flex libncurses-dev tmux parted mtools dosfstools
 
 # Remove all old stuff
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y autoremove
