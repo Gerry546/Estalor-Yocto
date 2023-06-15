@@ -12,6 +12,12 @@ pipeline {
     agent { label 'estalor'}
 
     stages {
+        stage('Prepare Build') {
+            steps {
+                sh 'mkdir -p layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
+                sh 'cp /home/yocto/wpa_supplicant-nl80211-wlan0.conf layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
+            }
+        }
         stage('Build QemuArm64-a53') {
             steps {
                 echo 'Building QemuArm64-a53 Image'
@@ -22,6 +28,25 @@ pipeline {
             steps {
                 echo 'Building Aarch64 Reterminal Image'
                 sh 'python3 -m kas build kas/estalor-aarch64-reterminal.yml'
+            }
+        }
+        stage('Deploy on deploy-pi'){
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sh 'mv build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
+                sh 'mv build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "Yocto-Deploy-Pi",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bmap",),
+                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bz2",)
+                            ]
+                        )
+                    ]
+                )
             }
         }
         stage('Cleanup'){
