@@ -47,6 +47,7 @@ RUN groupadd -g $host_gid $USER_NAME && useradd -g $host_gid -m -s /bin/bash -u 
 RUN echo ${USER_NAME}:${USER_NAME} | chpasswd
 
 WORKDIR /home/${USER_NAME}
+ADD wpa_supplicant-nl80211-wlan0.conf /home/yocto
 
 # Installing KAS for Yocto
 RUN pip3 install kas
