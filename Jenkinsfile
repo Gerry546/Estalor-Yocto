@@ -32,10 +32,10 @@ pipeline {
         }
         stage('Deploy on deploy-pi'){
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
-                sh 'mv build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
-                sh 'mv build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
                 sshPublisher(
-                    continueOnError: false, failOnError: true,
+                    continueOnError: true, failOnError: false,
                     publishers: [
                         sshPublisherDesc(
                             configName: "Yocto-Deploy-Pi",
