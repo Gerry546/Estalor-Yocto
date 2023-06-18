@@ -49,12 +49,12 @@ pipeline {
                 )
             }
         }
-        stage('Cleanup'){
-            steps {
-                echo 'Cleanup up build folder'
-                sh 'rm -rf build'
-            }
-        }
+        // stage('Cleanup'){
+        //     steps {
+        //         echo 'Cleanup up build folder'
+        //         sh 'rm -rf build'
+        //     }
+        // }
         stage('Clean Cache'){
             steps {
                 echo 'Cleaning sstate cache'

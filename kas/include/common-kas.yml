@@ -35,7 +35,7 @@ repos:
 
   meta-raspberrypi:
     url: "https://git.yoctoproject.org/meta-raspberrypi"
-    refspec: master
+    refspec: mickledore
     path: "sources/meta-raspberrypi"
     
 local_conf_header:
