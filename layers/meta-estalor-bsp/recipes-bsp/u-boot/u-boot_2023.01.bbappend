@@ -12,7 +12,9 @@ SRC_URI:append:qemuarm64-a53 = " \
     file://0001-cleaned-up-boot-commands.patch \
 "
 
-#     file://0001-Patch-defconfig-for-uboot-virtio.patch 
+SRC_URI:append:reterminal = " \
+    file://0001-Clean-boot-options.patch \
+"
 
 do_configure:append:qemuarm64-a53() {
     sed -e 's/@@KERNEL_IMAGETYPE@@/${KERNEL_IMAGETYPE}/' \
