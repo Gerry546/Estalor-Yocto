@@ -14,6 +14,8 @@ SRC_URI:append:qemuarm64-a53 = " \
 
 SRC_URI:append:reterminal = " \
     file://0001-Clean-boot-options.patch \
+    file://0001-place-uboot_env-in-boot-parts.patch \
+    file://fw_env.config \
 "
 
 do_configure:append:qemuarm64-a53() {
