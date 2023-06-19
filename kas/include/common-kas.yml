@@ -32,14 +32,17 @@ repos:
     url: "https://github.com/rauc/meta-rauc.git"
     refspec: mickledore
     path: "sources/meta-rauc"
+
+  meta-raspberrypi:
+    url: "https://git.yoctoproject.org/meta-raspberrypi"
+    refspec: mickledore
+    path: "sources/meta-raspberrypi"
     
 local_conf_header:
   estalor: |
     DL_DIR = "/cache/downloads"
     SSTATE_DIR = "/cache/sstate"
     PACKAGE_CLASSES = "package_ipk"
-    INHERIT += "buildhistory"
-    BUILDHISTORY_COMMIT = "1"
     USER_CLASSES ?= "buildstats"
     PATCHRESOLVE = "noop"
     BB_DISKMON_DIRS ??= "\
@@ -53,3 +56,4 @@ local_conf_header:
       HALT,/tmp,10M,1K"
     PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
     CONF_VERSION = "2"
+    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"

@@ -14,7 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 # Installs for host tooling needed for running menuconfig
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    bison flex libncurses-dev tmux
+    bison flex libncurses-dev tmux parted mtools dosfstools
 
 # Remove all old stuff
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y autoremove
@@ -47,6 +47,7 @@ RUN groupadd -g $host_gid $USER_NAME && useradd -g $host_gid -m -s /bin/bash -u 
 RUN echo ${USER_NAME}:${USER_NAME} | chpasswd
 
 WORKDIR /home/${USER_NAME}
+ADD wpa_supplicant-nl80211-wlan0.conf /home/yocto
 
 # Installing KAS for Yocto
 RUN pip3 install kas

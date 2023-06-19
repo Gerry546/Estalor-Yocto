@@ -12,16 +12,53 @@ pipeline {
     agent { label 'estalor'}
 
     stages {
-        stage('Build') {
+        stage('Prepare Build') {
             steps {
-                echo 'Building QemuArm53 Image'
-                sh 'python3 -m kas build kas/estalor-qemuarm-a53.yml'
+                sh 'mkdir -p layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
+                sh 'cp /home/yocto/wpa_supplicant-nl80211-wlan0.conf layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
             }
         }
-        stage('Cleanup'){
+        stage('Build QemuArm64-a53') {
             steps {
-                echo 'Cleanup up build folder'
-                sh 'rm -rf build'
+                echo 'Building QemuArm64-a53 Image'
+                sh 'python3 -m kas build kas/estalor-qemuarm64-a53.yml'
+            }
+        }
+        stage('Build Aarch64 Reterminal') {
+            steps {
+                echo 'Building Aarch64 Reterminal Image'
+                sh 'python3 -m kas build kas/estalor-aarch64-reterminal.yml'
+            }
+        }
+        stage('Deploy on deploy-pi'){
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
+                sshPublisher(
+                    continueOnError: true, failOnError: false,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "Yocto-Deploy-Pi",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bmap",),
+                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bz2",)
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
+        // stage('Cleanup'){
+        //     steps {
+        //         echo 'Cleanup up build folder'
+        //         sh 'rm -rf build'
+        //     }
+        // }
+        stage('Clean Cache'){
+            steps {
+                echo 'Cleaning sstate cache'
+                sh './sources/poky/scripts/sstate-cache-management.sh --cache-dir=/cache/sstate --extra-layer=layers/meta-estalor-distro,layers/meta-estalor-distro,layers/meta-estalor -y -d -v'
             }
         }
     }

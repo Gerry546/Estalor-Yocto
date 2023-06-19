@@ -1,0 +1,11 @@
+header:
+  version: 13
+  includes:
+  - kas/include/common-kas.yml
+
+# The machine as it is written into the `local.conf` of bitbake.
+machine: reterminal
+
+target: 
+  - estalor-debug-image
+  - estalor-reterminal-debug-bundle

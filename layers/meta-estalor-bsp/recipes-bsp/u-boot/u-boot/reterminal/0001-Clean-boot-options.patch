@@ -1,0 +1,28 @@
+From fd3f58c8052092b625a15721e5d9b4a7de3df5c6 Mon Sep 17 00:00:00 2001
+From: Tom Geelen <t.f.g.geelen@gmail.com>
+Date: Sun, 18 Jun 2023 13:56:08 +0000
+Subject: [PATCH] Clean boot options
+
+Signed-off-by: Tom Geelen <t.f.g.geelen@gmail.com>
+---
+ configs/rpi_arm64_defconfig | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/configs/rpi_arm64_defconfig b/configs/rpi_arm64_defconfig
+index 031ed69ff0..e40e0a0025 100644
+--- a/configs/rpi_arm64_defconfig
++++ b/configs/rpi_arm64_defconfig
+@@ -17,6 +17,13 @@ CONFIG_PREBOOT="pci enum; usb start;"
+ CONFIG_MISC_INIT_R=y
+ CONFIG_FDT_SIMPLEFB=y
+ CONFIG_SYS_PBSIZE=1049
++CONFIG_CMD_CONFIG=y
++# CONFIG_BOOTM_NETBSD is not set
++# CONFIG_BOOTM_PLAN9 is not set
++# CONFIG_BOOTM_RTEMS is not set
++# CONFIG_BOOTM_VXWORKS is not set
++# CONFIG_CMD_BOOTEFI is not set
++# CONFIG_CMD_ELF is not set
+ CONFIG_CMD_GPIO=y
+ CONFIG_CMD_MMC=y
+ CONFIG_CMD_PCI=y
