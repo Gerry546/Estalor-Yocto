@@ -34,6 +34,7 @@ pipeline {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
                 sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-reterminal-debug-bundle.raucb .'
                 sshPublisher(
                     continueOnError: true, failOnError: false,
                     publishers: [
@@ -42,7 +43,8 @@ pipeline {
                             verbose: true,
                             transfers: [
                                 sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bmap",),
-                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bz2",)
+                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bz2",),
+                                sshTransfer(sourceFiles: "estalor-reterminal-debug-bundle.raucb",)
                             ]
                         )
                     ]
