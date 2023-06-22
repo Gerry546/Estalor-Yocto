@@ -16,9 +16,7 @@ RAUC_SLOT_rootfs = "estalor-debug-image"
 RAUC_SLOT_rootfs[fstype] = "ext4"
 RAUC_SLOT_rootfs[adaptive] = "block-hash-index"
 
-# RAUC_SLOT_vfat = "reterminal-boot-image"
-# RAUC_SLOT_vfat[file] = "reterminal-boot.vfat"
-# RAUC_SLOT_vfat[type] = "boot"
-
 RAUC_KEY_FILE = "${THISDIR}/files/development-1.key.pem"
 RAUC_CERT_FILE = "${THISDIR}/files/development-1.cert.pem"
+
+BUNDLE_LINK_NAME = "${BUNDLE_BASENAME}"
