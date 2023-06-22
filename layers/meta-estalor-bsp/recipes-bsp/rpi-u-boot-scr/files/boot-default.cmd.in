@@ -24,7 +24,7 @@ for BOOT_SLOT in "${BOOT_ORDER}"; do
     if test ${BOOT_B_LEFT} -gt 0; then
       setexpr BOOT_B_LEFT ${BOOT_B_LEFT} - 1
       echo "Found valid RAUC slot B"
-      setenv bootpart 2
+      setenv bootpart 1
       setenv rootpart "/dev/mmcblk0p3"
       setenv raucslot "B"
     fi
