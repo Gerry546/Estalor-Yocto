@@ -11,4 +11,9 @@ IMAGE_FEATURES:append = "\
 
 IMAGE_INSTALL:append = " \
     nano \
+    evtest \
+    i2c-tools \
+    weston-examples \
+    strace \
+    wayland-utils \
 "
