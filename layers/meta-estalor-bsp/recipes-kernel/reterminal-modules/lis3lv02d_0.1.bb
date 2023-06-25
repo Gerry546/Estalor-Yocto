@@ -18,4 +18,4 @@ inherit module
 # The inherit of module.bbclass will automatically name module packages with
 # "kernel-module-" prefix as required by the oe-core build environment.
 
-RPROVIDES:${PN} += "kernel-module-reterminal-accelerometer"
+RPROVIDES:${PN} += "kernel-module-lis3lv02d"

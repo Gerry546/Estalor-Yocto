@@ -10,6 +10,9 @@ IMAGE_INSTALL = "\
 
 IMAGE_INSTALL:append:reterminal = "\
     kernel-modules \
+    kernel-module-ltr30x \
+    kernel-module-lis3lv02d \
+    kernel-module-panel-ili9881d \
     linux-firmware-rpidistro-bcm43455 \
     weston \
     weston-init \
