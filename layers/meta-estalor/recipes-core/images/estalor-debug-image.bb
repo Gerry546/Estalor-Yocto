@@ -11,6 +11,9 @@ IMAGE_FEATURES:append = "\
 
 IMAGE_INSTALL:append = " \
     nano \
+"
+
+IMAGE_INSTALL:append:reterminal = " \
     evtest \
     i2c-tools \
     weston-examples \
