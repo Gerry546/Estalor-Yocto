@@ -4,6 +4,7 @@ do_deploy:append() {
     # I2C3 is for encryption coprocessor
     # x is for the camera
     # SPI is just for the 40 pins connector
+    # Also enables screen support
     if [ "${ENABLE_RETERMINAL}" = "1" ]; then
         echo "# Enable reterminal" >> $CONFIG
         echo "dtoverlay=reterminal,tp_rotate=1" >> $CONFIG
