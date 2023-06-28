@@ -16,12 +16,9 @@ IMAGE_INSTALL:append:reterminal = "\
     linux-firmware-rpidistro-bcm43455 \
     weston \
     weston-init \
+    chromium-ozone-wayland \
+    chromium-launch \
 "
-
-#TODO
-# reterminal-screen-mod
-# reterminal-lightsensor-mod
-# reterminal-accelerometer-mod
 
 IMAGE_FEATURES = "\
 "

@@ -10,3 +10,9 @@
 [submodule "sources/meta-raspberrypi"]
 	path = sources/meta-raspberrypi
 	url = https://git.yoctoproject.org/meta-raspberrypi
+[submodule "sources/meta-clang"]
+	path = sources/meta-clang
+	url = https://github.com/kraj/meta-clang.git
+[submodule "sources/meta-browser"]
+	path = sources/meta-browser
+	url = https://github.com/OSSystems/meta-browser.git
