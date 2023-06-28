@@ -17,12 +17,8 @@ IMAGE_INSTALL:append:reterminal = "\
     weston \
     weston-init \
     chromium-ozone-wayland \
+    chromium-launch \
 "
-
-#TODO
-# reterminal-screen-mod
-# reterminal-lightsensor-mod
-# reterminal-accelerometer-mod
 
 IMAGE_FEATURES = "\
 "
