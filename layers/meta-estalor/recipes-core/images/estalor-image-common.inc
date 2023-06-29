@@ -18,6 +18,7 @@ IMAGE_INSTALL:append:reterminal = "\
     weston-init \
     chromium-ozone-wayland \
     chromium-launch \
+    button-handler \
 "
 
 IMAGE_FEATURES = "\
