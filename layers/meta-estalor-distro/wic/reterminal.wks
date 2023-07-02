@@ -13,4 +13,4 @@ part / --source rootfs --fixed-size 3G --ondisk mmcblk0 --fstype=ext4 --label ro
 part / --source rootfs --fixed-size 3G --ondisk mmcblk0 --fstype=ext4 --label rootfs_B --align 4096
 
 part /data    --ondisk mmcblk0 --fstype=ext4 --label data    --align 4096 --fixed-size 100M 
-part /storage --ondisk mmcblk0 --fstype=ext4 --label storage --align 4096 --size 500M
+part /storage --ondisk mmcblk0 --fstype=ext4 --label storage --align 4096 --size 22G --fsoptions "x-systemd.growfs"

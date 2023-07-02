@@ -6,4 +6,4 @@ tmpfs                /var/volatile        tmpfs      defaults                   
 
 LABEL=boot    /boot     vfat    defaults         0       0
 LABEL=data    /data     ext4    defaults         0       2
-LABEL=storage /storage  ext4    defaults         0       2
+LABEL=storage /storage  ext4    x-systemd.growfs 0       2
