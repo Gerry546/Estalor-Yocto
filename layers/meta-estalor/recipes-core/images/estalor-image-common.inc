@@ -22,6 +22,7 @@ IMAGE_INSTALL:append:reterminal = "\
 "
 
 IMAGE_FEATURES = "\
+    splash \
 "
 
 IMAGE_FEATURES:append:reterminal = "\
