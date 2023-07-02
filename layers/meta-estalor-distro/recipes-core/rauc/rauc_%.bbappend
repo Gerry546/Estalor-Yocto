@@ -6,3 +6,11 @@ RDEPENDS:${PN} += "\
     u-boot-env \
     u-boot-fw-utils \
 "
+
+do_install:append:reterminal() {
+    install -d ${D}/data/rauc
+}
+
+FILES:${PN} += "\
+    /data/rauc \
+"
