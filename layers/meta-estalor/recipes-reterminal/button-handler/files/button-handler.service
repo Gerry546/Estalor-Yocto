@@ -5,8 +5,8 @@ Requires=weston.service
 
 [Service]
 Type=simple
-User=weston
-Group=weston
+User=root
+Group=root
 PAMName=login
 ExecStart=/usr/bin/button-handler
 Restart=on-failure

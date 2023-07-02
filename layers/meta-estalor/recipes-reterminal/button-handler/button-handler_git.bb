@@ -3,6 +3,8 @@ AUTHOR = "Tom Geelen"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
 
+DEPENDS = "libevdev"
+
 SRC_URI = "\
 	git://github.com/Estalor/reterminal-button-handler.git;protocol=https;branch=main \
     file://button-handler.service \
@@ -13,7 +15,7 @@ SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
-inherit meson systemd
+inherit meson systemd pkgconfig
 
 do_install() {
 	install -d ${D}${bindir}
