@@ -10,7 +10,7 @@ inherit allarch systemd
 
 RDEPENDS:${PN} += "weston-init"
 
-URL ?= "https\://google.com"
+URL ?= "http://localhost:8123"
 
 do_compile() {
     sed -e "s:@@URL@@:${URL}:" \

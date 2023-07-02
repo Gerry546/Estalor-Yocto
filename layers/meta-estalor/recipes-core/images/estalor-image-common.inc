@@ -19,6 +19,7 @@ IMAGE_INSTALL:append:reterminal = "\
     chromium-ozone-wayland \
     chromium-launch \
     button-handler \
+    python3-homeassistant \
 "
 
 IMAGE_FEATURES = "\

@@ -1,6 +1,6 @@
 [Unit]
 Description=Start a chromium browser
-After=weston.service
+After=weston.service homeassistant.service
 Requires=weston.service
 
 [Service]
