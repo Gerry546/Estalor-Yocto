@@ -81,18 +81,17 @@ Obtain an IP address on the target::
 
     # udhcpc -i eth0
 
-
 Copy update Bundle from host to the target::
 
-    $ scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null build/tmp/deploy/images/qemu-homely-x86-64/home-center-bundle-qemu-qemu-homely-x86-64.raucb  root@localhost:/tmp
+    $  scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null build/tmp/deploy/images/qemuarm64-a53/estalor-qemuarm64-debug-bundle-qemuarm64-a53.raucb  root@localhost:/tmp
 
 Check Bundle on the target::
 
-    # rauc info /tmp/qemu-demo-bundle-qemux86-64.raucb
+    # rauc info /tmp/estalor-qemuarm64-debug-bundle-qemuarm64-a53.raucb
 
 Install the Bundle::
 
-    # rauc install /tmp/qemu-demo-bundle-qemux86-64.raucb
+    # rauc install /tmp/estalor-qemuarm64-debug-bundle-qemuarm64-a53.raucb
     installing
       0% Installing
       0% Determining slot states
