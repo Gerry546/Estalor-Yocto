@@ -19,6 +19,7 @@ do_deploy[depends] += "\
     dosfstools-native:do_populate_sysroot \
     mtools-native:do_populate_sysroot \
     virtual/kernel:do_deploy \
+    virtual/bootloader:do_deploy \
 "
 
 PARTITION_NAME = "kernel-part"
