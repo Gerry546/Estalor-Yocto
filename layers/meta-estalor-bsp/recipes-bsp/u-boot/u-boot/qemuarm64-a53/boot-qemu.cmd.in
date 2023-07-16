@@ -1,7 +1,7 @@
 if test -e virtio 0:2 uboot.env; then env load; fi;
 
 # Load the device tree
-fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs || setenv bootargs ${fallback_bootargs}
+fdt addr ${fdt_addr} #  && fdt get value bootargs /chosen bootargs || setenv bootargs ${fallback_bootargs}
 
 test -n "${BOOT_ORDER}" || setenv BOOT_ORDER "A B"
 test -n "${BOOT_A_LEFT}" || setenv BOOT_A_LEFT 3
@@ -17,14 +17,14 @@ for BOOT_SLOT in "${BOOT_ORDER}"; do
     if test ${BOOT_A_LEFT} -gt 0; then
       setexpr BOOT_A_LEFT ${BOOT_A_LEFT} - 1
       echo "Found valid RAUC slot A"
-      setenv bootpart "/dev/vda3"
+      setenv bootpart "/dev/vda5"
       setenv raucslot "A"
     fi
   elif test "x${BOOT_SLOT}" = "xB"; then
     if test ${BOOT_B_LEFT} -gt 0; then
       setexpr BOOT_B_LEFT ${BOOT_B_LEFT} - 1
       echo "Found valid RAUC slot B"
-      setenv bootpart "/dev/vda4"
+      setenv bootpart "/dev/vda6"
       setenv raucslot "B"
     fi
   fi
@@ -43,7 +43,7 @@ else
 fi
 
 # Load the kernel
-fatload virtio 0:1 ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
+#load virtio 0:3 ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
 if test ! -e virtio 0:2 uboot.env; then saveenv; fi;
 
 # Now actually boot the system
