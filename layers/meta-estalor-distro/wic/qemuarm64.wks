@@ -12,6 +12,7 @@ part --source bootimg-partition --ondisk vda --fstype vfat --label boot --active
 part --fixed-size 10M --ondisk vda --align 4096 --label uboot-env --fstype vfat
 part --source rawcopy --sourceparams="file=kernel-part.vfat" --fixed-size 100M --ondisk vda --align 4096 --label kernel_a --fstype vfat
 part --source rawcopy --sourceparams="file=kernel-part.vfat" --fixed-size 100M --ondisk vda --align 4096 --label kernel_b --fstype vfat
-part --fixed-size 500M --source rootfs --ondisk vda --fstype=ext4 --label root_a --align 4096
-part --fixed-size 500M --source rootfs --ondisk vda --fstype=ext4 --label root_b --align 4096
+part --fixed-size 800M --source rootfs --ondisk vda --fstype=ext4 --label root_a --align 4096
+part --fixed-size 800M --source rootfs --ondisk vda --fstype=ext4 --label root_b --align 4096
 part --fixed-size 100M --ondisk vda --fstype=ext4 --label data --align 4096
+part --fixed-size 200M --ondisk vda --fstype=ext4 --label storage --align 4096

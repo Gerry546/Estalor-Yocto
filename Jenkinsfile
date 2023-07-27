@@ -12,6 +12,11 @@ pipeline {
     agent { label 'estalor'}
 
     stages {
+        stage('Test Homeassistant') {
+            steps {
+                sh 'python3 -m kas build kas/estalor-homeassistant.yml'
+            }
+        }
         stage('Prepare Build') {
             steps {
                 sh 'mkdir -p layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'

@@ -1,5 +1,5 @@
-HOMEASSISTANT_CONFIG_DIR = "/storage/homeassistant"
+HOMEASSISTANT_CONFIG_DIR:reterminal = "/storage/homeassistant"
 
-FILES:${PN} += "\
+FILES:${PN}:reterminal += "\
     /storage/homeassistant \
 "
