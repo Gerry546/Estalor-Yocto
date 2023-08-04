@@ -55,7 +55,7 @@ repos:
   meta-homeassistant:
     url: "https://github.com/Gerry546/meta-homeassistant.git"
     path: "layers/meta-homeassistant"
-    refspec: mickledore
+    refspec: feature/v2023.4.0
     
 local_conf_header:
   estalor: |
@@ -75,4 +75,8 @@ local_conf_header:
       HALT,/tmp,10M,1K"
     PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
     CONF_VERSION = "2"
-    LICENSE_FLAGS_ACCEPTED = "synaptics-killswitch"
+    LICENSE_FLAGS_ACCEPTED = "\
+      synaptics-killswitch \
+      commercial_ffmpeg \
+      commercial_x264 \
+    "
