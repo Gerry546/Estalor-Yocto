@@ -9,4 +9,4 @@ LABEL=uboot-env      /uboot-env           vfat       defaults,nofail,noatime  0 
 LABEL=kernel_a       /kernel_a            vfat       defaults,nofail,noatime  0  0
 LABEL=kernel_b       /kernel_b            vfat       defaults,nofail,noatime  0  0
 LABEL=data           /data                auto       defaults,nofail,noatime  0  2
-LABEL=storage        /storage             auto       defaults,nofail,noatime  0  2
+LABEL=ha-conf        /ha-conf             auto       defaults,nofail,noatime  0  2

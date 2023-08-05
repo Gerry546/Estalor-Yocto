@@ -4,7 +4,8 @@
 # - empty partition which is used for the u-boot env
 # - 2x partition for the kernel partitions
 # - 2x rootfs partition for A/B partitioning
-# - data partition
+# - data partition: for RAUC
+# - ha-conf: for the configuration of home assistant
 
 bootloader --ptable gpt
 
@@ -15,4 +16,4 @@ part --source rawcopy --sourceparams="file=kernel-part.vfat" --fixed-size 100M -
 part --fixed-size 2G --source rootfs --ondisk vda --fstype=ext4 --label root_a --align 4096
 part --fixed-size 2G --source rootfs --ondisk vda --fstype=ext4 --label root_b --align 4096
 part --fixed-size 100M --ondisk vda --fstype=ext4 --label data --align 4096
-part --fixed-size 200M --ondisk vda --fstype=ext4 --label storage --align 4096
+part --fixed-size 100M --ondisk vda --fstype=ext4 --label ha-conf --align 4096

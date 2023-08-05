@@ -1,5 +1,6 @@
-HOMEASSISTANT_CONFIG_DIR:reterminal = "/storage/homeassistant"
+HOMEASSISTANT_CONFIG_DIR = "/ha-conf"
+HOMEASSISTANT_USER = "root"
 
-FILES:${PN}:reterminal += "\
-    /storage/homeassistant \
+FILES:${PN} += "\
+    ${HOMEASSISTANT_CONFIG_DIR} \
 "
