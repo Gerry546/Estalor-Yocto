@@ -7,5 +7,5 @@ header:
 machine: qemuarm64-a53
 
 target: 
-  - estalor-debug-image
+  - estalor-image-debug
   - estalor-qemuarm64-debug-bundle

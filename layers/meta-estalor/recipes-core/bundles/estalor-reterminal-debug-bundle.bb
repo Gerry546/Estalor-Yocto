@@ -12,7 +12,7 @@ RAUC_BUNDLE_SLOTS = "rootfs"
 
 RAUC_IMAGE_FSTYPE = "tar.bz2"
 
-RAUC_SLOT_rootfs = "estalor-debug-image"
+RAUC_SLOT_rootfs = "estalor-image-debug"
 RAUC_SLOT_rootfs[fstype] = "ext4"
 RAUC_SLOT_rootfs[adaptive] = "block-hash-index"
 
