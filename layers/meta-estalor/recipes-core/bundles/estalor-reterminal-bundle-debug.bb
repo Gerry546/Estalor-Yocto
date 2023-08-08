@@ -7,10 +7,12 @@ RAUC_BUNDLE_COMPATIBLE = "Estalor (reterminal)"
 
 RAUC_BUNDLE_FORMAT = "verity"
 
-RAUC_BUNDLE_SLOTS = "rootfs"
-# RAUC_BUNDLE_SLOTS = "rootfs vfat"
+RAUC_BUNDLE_SLOTS = "rootfs kernel"
 
 RAUC_IMAGE_FSTYPE = "tar.bz2"
+
+RAUC_SLOT_kernel = "estalor-image-kernel"
+
 
 RAUC_SLOT_rootfs = "estalor-image-debug"
 RAUC_SLOT_rootfs[fstype] = "ext4"

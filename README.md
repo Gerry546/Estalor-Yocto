@@ -83,7 +83,7 @@ Obtain an IP address on the target::
 
 Copy update Bundle from host to the target::
 
-    $  scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null build/tmp/deploy/images/qemuarm64-a53/estalor-qemuarm64-debug-bundle-qemuarm64-a53.raucb  root@localhost:/tmp
+    $  scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null build/tmp/deploy/images/qemuarm64-a53/estalor-qemuarm64-bundle-debug-qemuarm64-a53.raucb  root@localhost:/tmp
 
 Check Bundle on the target::
 

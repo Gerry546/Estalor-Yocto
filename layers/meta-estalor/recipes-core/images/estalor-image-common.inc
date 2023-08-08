@@ -19,6 +19,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-shelly \
     python3-homeassistant-tts \
     python3-homeassistant-upnp \
+    udev-extraconf \
 "
 
 IMAGE_INSTALL:append:reterminal = "\
