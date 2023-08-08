@@ -12,15 +12,15 @@ pipeline {
     agent { label 'estalor'}
 
     stages {
-        stage('Test Homeassistant') {
-            steps {
-                sh 'python3 -m kas build kas/estalor-homeassistant.yml'
-            }
-        }
         stage('Prepare Build') {
             steps {
                 sh 'mkdir -p layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
                 sh 'cp /home/yocto/wpa_supplicant-nl80211-wlan0.conf layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
+            }
+        }
+        stage('Test Homeassistant') {
+            steps {
+                sh 'python3 -m kas build kas/estalor-homeassistant.yml'
             }
         }
         stage('Build QemuArm64-a53') {
