@@ -37,9 +37,9 @@ pipeline {
         }
         stage('Deploy on deploy-pi'){
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
-                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
-                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
-                sh 'cp build/tmp/deploy/images/reterminal/estalor-reterminal-debug-bundle.raucb .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bmap .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bz2 .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-reterminal-bundle-debug.raucb .'
                 sshPublisher(
                     continueOnError: true, failOnError: false,
                     publishers: [
@@ -47,9 +47,9 @@ pipeline {
                             configName: "Yocto-Deploy-Pi",
                             verbose: true,
                             transfers: [
-                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bmap",),
-                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bz2",),
-                                sshTransfer(sourceFiles: "estalor-reterminal-debug-bundle.raucb",)
+                                sshTransfer(sourceFiles: "estalor-image-debug-reterminal.wic.bmap",),
+                                sshTransfer(sourceFiles: "estalor-image-debug-reterminal.wic.bz2",),
+                                sshTransfer(sourceFiles: "estalor-reterminal-bundle-debug.raucb",)
                             ]
                         )
                     ]
