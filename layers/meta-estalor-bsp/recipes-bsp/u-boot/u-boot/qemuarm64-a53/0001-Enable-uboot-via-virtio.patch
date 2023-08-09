@@ -30,7 +30,7 @@ index 4123338b8d..d4b635b471 100644
  CONFIG_FIT_VERBOSE=y
  CONFIG_FIT_BEST_MATCH=y
  CONFIG_LEGACY_IMAGE_FORMAT=y
-+CONFIG_BOOTCOMMAND="run virtio_init; load virtio 0:3 ${scriptaddr} boot.scr; load virtio 0:3 ${kernel_addr_r} Image; source ${scriptaddr}"
++CONFIG_BOOTCOMMAND="run virtio_init; env exists kernel_partition || setenv kernel_partition 3; load virtio 0:${kernel_partition} ${scriptaddr} boot.scr; load virtio 0:3 ${kernel_addr_r} Image; source ${scriptaddr}"
  CONFIG_USE_PREBOOT=y
  # CONFIG_DISPLAY_CPUINFO is not set
  # CONFIG_DISPLAY_BOARDINFO is not set
