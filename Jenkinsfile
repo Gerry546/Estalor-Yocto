@@ -12,15 +12,15 @@ pipeline {
     agent { label 'estalor'}
 
     stages {
-        stage('Test Homeassistant') {
-            steps {
-                sh 'python3 -m kas build kas/estalor-homeassistant.yml'
-            }
-        }
         stage('Prepare Build') {
             steps {
                 sh 'mkdir -p layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
                 sh 'cp /home/yocto/wpa_supplicant-nl80211-wlan0.conf layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
+            }
+        }
+        stage('Test Homeassistant') {
+            steps {
+                sh 'python3 -m kas build kas/estalor-homeassistant.yml'
             }
         }
         stage('Build QemuArm64-a53') {
@@ -37,9 +37,9 @@ pipeline {
         }
         stage('Deploy on deploy-pi'){
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
-                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bmap .'
-                sh 'cp build/tmp/deploy/images/reterminal/estalor-debug-image-reterminal.wic.bz2 .'
-                sh 'cp build/tmp/deploy/images/reterminal/estalor-reterminal-debug-bundle.raucb .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bmap .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bz2 .'
+                sh 'cp build/tmp/deploy/images/reterminal/estalor-reterminal-bundle-debug.raucb .'
                 sshPublisher(
                     continueOnError: true, failOnError: false,
                     publishers: [
@@ -47,9 +47,9 @@ pipeline {
                             configName: "Yocto-Deploy-Pi",
                             verbose: true,
                             transfers: [
-                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bmap",),
-                                sshTransfer(sourceFiles: "estalor-debug-image-reterminal.wic.bz2",),
-                                sshTransfer(sourceFiles: "estalor-reterminal-debug-bundle.raucb",)
+                                sshTransfer(sourceFiles: "estalor-image-debug-reterminal.wic.bmap",),
+                                sshTransfer(sourceFiles: "estalor-image-debug-reterminal.wic.bz2",),
+                                sshTransfer(sourceFiles: "estalor-reterminal-bundle-debug.raucb",)
                             ]
                         )
                     ]

@@ -1,6 +1,7 @@
 # short-description: Create Reterminal partition scheme
 # long-description: Create a partitioned image consisting of
 # - 1x boot partition
+# - 2x kernel partition for A/B partitioning with kernel upgrades
 # - 2x rootfs partition for A/B partitioning
 # - data partition for persistent storage
 # - storage partition for other logs
@@ -9,8 +10,12 @@ bootloader --ptable gpt
 
 part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --fixed-size 100M
 
+part --source rawcopy --sourceparams="file=kernel-part.vfat" --fixed-size 100M --ondisk mmcblk0 --align 4096 --label kernel_a --fstype vfat
+part --source rawcopy --sourceparams="file=kernel-part.vfat" --fixed-size 100M --ondisk mmcblk0 --align 4096 --label kernel_b --fstype vfat
+
 part / --source rootfs --fixed-size 3G --ondisk mmcblk0 --fstype=ext4 --label rootfs_A --align 4096
 part / --source rootfs --fixed-size 3G --ondisk mmcblk0 --fstype=ext4 --label rootfs_B --align 4096
 
 part /data    --ondisk mmcblk0 --fstype=ext4 --label data    --align 4096 --fixed-size 100M 
-part /storage --ondisk mmcblk0 --fstype=ext4 --label storage --align 4096 --size 22G --fsoptions "x-systemd.growfs"
+part /ha-conf --ondisk mmcblk0 --fstype=ext4 --label ha-conf --align 4096 --fixed-size 4G
+part /storage --ondisk mmcblk0 --fstype=ext4 --label storage --align 4096 --size 18G --fsoptions "x-systemd.growfs"

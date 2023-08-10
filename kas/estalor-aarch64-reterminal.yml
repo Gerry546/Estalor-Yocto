@@ -8,4 +8,4 @@ machine: reterminal
 
 target: 
   - estalor-image-debug
-  - estalor-reterminal-debug-bundle
+  - estalor-reterminal-bundle-debug
