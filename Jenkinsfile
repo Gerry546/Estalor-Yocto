@@ -20,19 +20,19 @@ pipeline {
         }
         stage('Test Homeassistant') {
             steps {
-                sh 'python3 -m kas build kas/estalor-homeassistant.yml'
+                sh 'kas build kas/estalor-homeassistant.yml'
             }
         }
         stage('Build QemuArm64-a53') {
             steps {
                 echo 'Building QemuArm64-a53 Image'
-                sh 'python3 -m kas build kas/estalor-qemuarm64-a53.yml'
+                sh 'kas build kas/estalor-qemuarm64-a53.yml'
             }
         }
         stage('Build Aarch64 Reterminal') {
             steps {
                 echo 'Building Aarch64 Reterminal Image'
-                sh 'python3 -m kas build kas/estalor-aarch64-reterminal.yml'
+                sh 'kas build kas/estalor-aarch64-reterminal.yml'
             }
         }
         stage('Deploy on deploy-pi'){
