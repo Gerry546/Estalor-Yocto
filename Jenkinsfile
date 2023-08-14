@@ -16,8 +16,8 @@ pipeline {
             steps {
                 sh 'mkdir -p layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
                 sh 'cp /home/yocto/wpa_supplicant-nl80211-wlan0.conf layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/'
-                sh 'cp /home/id_ed25519 layers/meta-estalor/recipes-connectivity/openssh/openssh/'
-                sh 'cp /home/id_ed25519.pub layers/meta-estalor/recipes-connectivity/openssh/openssh/'
+                sh 'cp /home/yocto/id_ed25519 layers/meta-estalor/recipes-connectivity/openssh/openssh/'
+                sh 'cp /home/yocto/id_ed25519.pub layers/meta-estalor/recipes-connectivity/openssh/openssh/'
             }
         }
         stage('Test Homeassistant') {
