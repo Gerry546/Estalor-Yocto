@@ -4,6 +4,7 @@ IMAGE_INSTALL = "\
     packagegroup-core-boot \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     rauc \
+    openssh \
     openssh-sshd \
     openssh-scp \
     python3-homeassistant \
@@ -20,6 +21,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-tts \
     python3-homeassistant-upnp \
     udev-extraconf \
+    git \
 "
 
 IMAGE_INSTALL:append:reterminal = "\

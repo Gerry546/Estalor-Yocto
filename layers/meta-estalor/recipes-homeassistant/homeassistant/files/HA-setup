@@ -1,0 +1,3 @@
+#!/bin/bash
+
+git clone git@github.com:Estalor/Estalor-HomeAssistant-Common.git /ha-conf/common
