@@ -1,3 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-git clone git@github.com:Estalor/Estalor-HomeAssistant-Common.git /ha-conf/common
+if [ -z "$(ls -A /ha-conf/common/)" ]; then
+   echo "Starting automatic setup for HA"
+    git clone git@github.com:Estalor/Estalor-HomeAssistant-Common.git /ha-conf/common || exit 1
+else
+   echo "Directory not empty. skipping...."
+   exit 0
+fi

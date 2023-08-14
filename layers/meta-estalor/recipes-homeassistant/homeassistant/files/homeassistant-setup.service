@@ -1,0 +1,12 @@
+[Unit]
+Description=Home Assistant Setup Service
+After=network.target
+
+[Service]
+Type=simple
+User=@HOMEASSISTANT_USER@
+ExecStart=/usr/bin/HA-setup
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
