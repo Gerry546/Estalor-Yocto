@@ -56,7 +56,7 @@ a qemu based image is created in order to do easy development.
 ## Running
 To run the image you can do the following:
 ```
-$ runqemu tmp/deploy/images/qemuarm64-a53/estalor-debug-image-qemuarm64-a53.qemuboot.conf slirp wic nographic
+$ runqemu tmp/deploy/images/qemuarm64-a53/estalor-image-debug-qemuarm64-a53.qemuboot.conf slirp wic nographic
 ```
 
 ## Updating

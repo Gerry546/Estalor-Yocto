@@ -48,9 +48,14 @@ RUN echo ${USER_NAME}:${USER_NAME} | chpasswd
 
 WORKDIR /home/${USER_NAME}
 ADD wpa_supplicant-nl80211-wlan0.conf /home/yocto
+ADD id_ed25519 /home/yocto
+ADD id_ed25519.pub /home/yocto
 
 # Installing KAS for Yocto
-RUN pip3 install kas
+RUN pip install --upgrade wheel pip \
+    && echo 'Cython < 3' > /tmp/constraint.txt \
+    && PIP_CONSTRAINT=/tmp/constraint.txt pip wheel PyYAML==5.4.1 \
+    && pip install kas
 
 RUN service ssh start
 USER root
