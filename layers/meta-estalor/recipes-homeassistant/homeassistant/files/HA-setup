@@ -9,7 +9,7 @@ if [ -z "$(ls -A /ha-conf/.git)" ]; then
    git clean -d -f .
    git pull origin main -f
    echo "Getting submodules"
-   git submodule init
+   git submodule update --init
 else
    echo "Directory not empty. skipping...."
    exit 0
