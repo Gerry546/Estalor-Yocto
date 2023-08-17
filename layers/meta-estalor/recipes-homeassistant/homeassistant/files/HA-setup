@@ -1,8 +1,15 @@
 #!/bin/sh
 
-if [ -z "$(ls -A /ha-conf/common/)" ]; then
+cd /ha-conf/
+if [ -z "$(ls -A /ha-conf/.git)" ]; then
    echo "Starting automatic setup for HA"
-    git clone git@github.com:Estalor/Estalor-HomeAssistant-Common.git /ha-conf/common || exit 1
+   git init --initial-branch=main
+   echo "Adding remote"
+   git remote add origin git@github.com:Estalor/Reterminal-Homeassistant.git
+   git clean -d -f .
+   git pull origin main -f
+   echo "Getting submodules"
+   git submodule init
 else
    echo "Directory not empty. skipping...."
    exit 0
