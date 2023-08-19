@@ -13,6 +13,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-cast \
     python3-homeassistant-fritz \
     python3-homeassistant-fritzbox \
+    python3-homeassistant-hacs \
     python3-homeassistant-ipp \
     python3-homeassistant-met \
     python3-homeassistant-octoprint \
