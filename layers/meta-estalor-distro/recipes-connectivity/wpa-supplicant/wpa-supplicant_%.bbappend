@@ -1,6 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI += "file://wpa_supplicant-nl80211-wlan0.conf"
+SRC_URI += "file://wpa_supplicant-nl80211-wlan0.conf \
+            file://0001-Decrease-verbosity.patch \
+            "
 
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN}:append = " wpa_supplicant-nl80211@wlan0.service  "
