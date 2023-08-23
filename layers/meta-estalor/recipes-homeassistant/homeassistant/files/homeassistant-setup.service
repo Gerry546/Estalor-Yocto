@@ -1,7 +1,6 @@
 [Unit]
 Description=Home Assistant Setup Service
-After=network-online.target
-Wants=network-online.target
+After=networ.target
 
 [Service]
 Type=oneshot
