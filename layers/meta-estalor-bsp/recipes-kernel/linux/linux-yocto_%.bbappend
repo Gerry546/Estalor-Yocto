@@ -1,3 +1,3 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
-SRC_URI:append:qemuarm64-a53 = " file://virtio.cfg"
+SRC_URI:append:qemuarm64 = " file://virtio.cfg"

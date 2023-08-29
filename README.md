@@ -49,14 +49,14 @@ Furthermore there are the layers in the sources folder so if you can always do t
 $ source sources/poky/oe-init-build-env
 ```
 
-# Image: estalor-qemuarm64-a53
+# Image: estalor-qemuarm64-a72
 One of the regular targets for the Estalor projects is a variety of Raspberry Pi 3 or 4 based products. To facilitate testing with this easily
 a qemu based image is created in order to do easy development.
 
 ## Running
 To run the image you can do the following:
 ```
-$ runqemu tmp/deploy/images/qemuarm64-a53/estalor-image-debug-qemuarm64-a53.qemuboot.conf slirp wic nographic
+$ runqemu tmp/deploy/images/qemuarm64-a72/estalor-image-debug-qemuarm64-a72.qemuboot.conf slirp wic nographic
 ```
 
 ## Updating
@@ -83,15 +83,15 @@ Obtain an IP address on the target::
 
 Copy update Bundle from host to the target::
 
-    $  scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null build/tmp/deploy/images/qemuarm64-a53/estalor-qemuarm64-bundle-debug-qemuarm64-a53.raucb  root@localhost:/tmp
+    $  scp -P 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null build/tmp/deploy/images/qemuarm64-a72/estalor-qemuarm64-bundle-debug-qemuarm64-a72.raucb  root@localhost:/tmp
 
 Check Bundle on the target::
 
-    # rauc info /tmp/estalor-qemuarm64-debug-bundle-qemuarm64-a53.raucb
+    # rauc info /tmp/estalor-qemuarm64-debug-bundle-qemuarm64-a72.raucb
 
 Install the Bundle::
 
-    # rauc install /tmp/estalor-qemuarm64-debug-bundle-qemuarm64-a53.raucb
+    # rauc install /tmp/estalor-qemuarm64-debug-bundle-qemuarm64-a72.raucb
     installing
       0% Installing
       0% Determining slot states

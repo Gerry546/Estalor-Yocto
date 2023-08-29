@@ -78,5 +78,4 @@ local_conf_header:
     LICENSE_FLAGS_ACCEPTED = "\
       synaptics-killswitch \
       commercial_ffmpeg \
-      commercial_x264 \
     "

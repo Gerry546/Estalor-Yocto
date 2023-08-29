@@ -25,10 +25,10 @@ pipeline {
                 sh 'kas build kas/estalor-homeassistant.yml'
             }
         }
-        stage('Build QemuArm64-a53') {
+        stage('Build QemuArm64-a72') {
             steps {
-                echo 'Building QemuArm64-a53 Image'
-                sh 'kas build kas/estalor-qemuarm64-a53.yml'
+                echo 'Building QemuArm64-a72 Image'
+                sh 'kas build kas/estalor-qemuarm64-a72.yml'
             }
         }
         stage('Build Aarch64 Reterminal') {
