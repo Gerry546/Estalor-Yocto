@@ -20,9 +20,14 @@ pipeline {
                 sh 'cp /home/yocto/id_ed25519.pub layers/meta-estalor/recipes-connectivity/openssh/openssh/'
             }
         }
-        stage('Test Homeassistant') {
+        stage('Test Homeassistant Arm64') {
             steps {
-                sh 'kas build kas/estalor-homeassistant.yml'
+                sh 'kas build kas/estalor-homeassistant-arm64-a72.yml'
+            }
+        }
+        stage('Test Homeassistant X86-64') {
+            steps {
+                sh 'kas build kas/estalor-homeassistant-x86-64.yml.yml'
             }
         }
         stage('Build QemuArm64-a72') {

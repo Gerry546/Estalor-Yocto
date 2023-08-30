@@ -49,7 +49,22 @@ Furthermore there are the layers in the sources folder so if you can always do t
 $ source sources/poky/oe-init-build-env
 ```
 
-# Image: estalor-qemuarm64-a72
+There is a variety of omages which can be build.
+
+Homeassistant images build `core-image-homeassistant` which is a basic core image with just the essential of getting homeassistant running. Mainly used for tests.
+
+1. estalor-homeassistant-arm64-a53
+2. estalor-homeassistant-arm64-a72
+3. estalor-homeassistant-x86-64
+
+Qemu images build the `estalor-image` and implement the full experience in qemu such as RAUC A/B update mechanism, homeassistant etc.
+1. estalor-qemuarm64-a53
+2. estalor-qemuarm64-a72
+
+Reterminal image which is aimed at providing an `estalor-image` and bundles for a Seeed Studio Reterminal.
+1. estalor-aarch64-reterminal
+
+# Image: estalor-qemuarm64-xxx,
 One of the regular targets for the Estalor projects is a variety of Raspberry Pi 3 or 4 based products. To facilitate testing with this easily
 a qemu based image is created in order to do easy development.
 
