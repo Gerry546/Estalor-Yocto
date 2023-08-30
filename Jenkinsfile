@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Test Homeassistant X86-64') {
             steps {
-                sh 'kas build kas/estalor-homeassistant-x86-64.yml.yml'
+                sh 'kas build kas/estalor-homeassistant-x86-64.yml'
             }
         }
         stage('Build QemuArm64-a72') {
