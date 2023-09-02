@@ -1,0 +1,6 @@
+header:
+  version: 13
+
+local_conf_header:
+  cve: |
+    INHERIT += "cve-check"
