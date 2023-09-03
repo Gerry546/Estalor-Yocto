@@ -7,7 +7,11 @@ IMAGE_INSTALL = "\
     openssh \
     openssh-sshd \
     openssh-scp \
+    udev-extraconf \
+    git \
+    \
     python3-homeassistant \
+    \
     python3-homeassistant-axis \
     python3-homeassistant-backup \
     python3-homeassistant-cast \
@@ -20,9 +24,7 @@ IMAGE_INSTALL = "\
     python3-homeassistant-radio-browser \
     python3-homeassistant-shelly \
     python3-homeassistant-tts \
-    python3-homeassistant-upnp \
-    udev-extraconf \
-    git \
+    python3-homeassistant-upnp \ 
 "
 
 IMAGE_INSTALL:append:reterminal = "\
