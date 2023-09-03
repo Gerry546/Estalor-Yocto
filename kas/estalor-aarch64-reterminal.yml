@@ -2,7 +2,6 @@ header:
   version: 13
   includes:
   - kas/include/common-kas.yml
-  - kas/include/include-cve.yml
 
 # The machine as it is written into the `local.conf` of bitbake.
 machine: reterminal
