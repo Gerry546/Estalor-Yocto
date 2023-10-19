@@ -17,6 +17,7 @@ repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
     branch: mickledore
+    commit: 9d5a1d14c9c5ab190c5b3f0919571c5d276e5bf3
     layers:
       meta:
     path: "sources/poky"
@@ -24,6 +25,7 @@ repos:
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
     branch: mickledore
+    commit: 922f41b39f364e5b6be596b4b51e0fb37ffe1971
     layers:
       meta-oe:
       meta-python:
@@ -48,6 +50,7 @@ repos:
   meta-browser:
     url: "https://github.com/OSSystems/meta-browser.git"
     branch: master
+    commit: e75da7cc83393b174220b808d96f8f05ab7ad4d2
     path: "sources/meta-browser"
     layers:
       meta-chromium:
