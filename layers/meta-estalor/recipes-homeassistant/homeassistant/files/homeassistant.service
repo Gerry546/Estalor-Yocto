@@ -1,10 +1,10 @@
 [Unit]
 Description=Home Assistant
-After=homeassistant-setup.service
 
 [Service]
 Type=simple
 User=@HOMEASSISTANT_USER@
+ExecStartPre=/usr/bin/HA-setup
 ExecStart=/usr/bin/hass --skip-pip -c "@HOMEASSISTANT_CONFIG_DIR@"
 Restart=on-failure
 

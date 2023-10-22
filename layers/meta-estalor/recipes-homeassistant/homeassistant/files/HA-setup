@@ -1,16 +1,17 @@
 #!/bin/sh
 
 cd /ha-conf/
-if [ -z "$(ls -A /ha-conf/.git)" ]; then
+if [ ! -d "/ha-conf/.git" ]; then
+   while ! ping -c1 github.com &>/dev/null; do echo "host not responding"; done
    echo "Starting automatic setup for HA"
    git init --initial-branch=main
    echo "Adding remote"
-   git remote add origin git@github.com:Estalor/Reterminal-Homeassistant.git
+   git remote add origin git@github.com:Gerry546/Reterminal-Homeassistant.git
    git clean -d -f .
    git pull origin main -f
    echo "Getting submodules"
    git submodule update --init
 else
-   echo "Directory not empty. skipping...."
+   echo "Found existing .git directory. skipping...."
    exit 0
 fi
