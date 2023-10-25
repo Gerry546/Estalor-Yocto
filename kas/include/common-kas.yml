@@ -35,11 +35,13 @@ repos:
   meta-rauc:
     url: "https://github.com/rauc/meta-rauc.git"
     branch: mickledore
+    commit: c0dcec7b1b0d20862806915e12b4f332e5bef58c
     path: "sources/meta-rauc"
 
   meta-raspberrypi:
     url: "https://git.yoctoproject.org/meta-raspberrypi"
     branch: mickledore
+    commit: aa0aed9a08d6578a18c4eeb3b44ed8354a57ebee
     path: "sources/meta-raspberrypi"
 
   meta-clang:
@@ -58,8 +60,8 @@ repos:
   meta-homeassistant:
     url: "https://github.com/Gerry546/meta-homeassistant.git"
     path: "sources/meta-homeassistant"
-    branch: implement_tradfri
-    # commit: "611d2d14b833e265527f3f12b502ee7377dc53b2"
+    branch: main
+    commit: "611d2d14b833e265527f3f12b502ee7377dc53b2"
     
 local_conf_header:
   estalor: |
