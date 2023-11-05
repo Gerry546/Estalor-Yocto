@@ -17,7 +17,7 @@ repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
     branch: mickledore
-    # commit: 9d5a1d14c9c5ab190c5b3f0919571c5d276e5bf3
+    commit: 9d5a1d14c9c5ab190c5b3f0919571c5d276e5bf3
     layers:
       meta:
     path: "sources/poky"
@@ -25,7 +25,7 @@ repos:
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
     branch: mickledore
-    # commit: 922f41b39f364e5b6be596b4b51e0fb37ffe1971
+    commit: 922f41b39f364e5b6be596b4b51e0fb37ffe1971
     layers:
       meta-oe:
       meta-python:
@@ -35,25 +35,25 @@ repos:
   meta-rauc:
     url: "https://github.com/rauc/meta-rauc.git"
     branch: mickledore
-    # commit: c0dcec7b1b0d20862806915e12b4f332e5bef58c
+    commit: c0dcec7b1b0d20862806915e12b4f332e5bef58c
     path: "sources/meta-rauc"
 
   meta-raspberrypi:
     url: "https://git.yoctoproject.org/meta-raspberrypi"
     branch: mickledore
-    # commit: aa0aed9a08d6578a18c4eeb3b44ed8354a57ebee
+    commit: aa0aed9a08d6578a18c4eeb3b44ed8354a57ebee
     path: "sources/meta-raspberrypi"
 
   meta-clang:
     url: "https://github.com/kraj/meta-clang.git"
     branch: mickledore
-    # commit: af4dcba009ba98250315520f3003fde4ee164cce
+    commit: af4dcba009ba98250315520f3003fde4ee164cce
     path: "sources/meta-clang"
 
   meta-browser:
     url: "https://github.com/OSSystems/meta-browser.git"
     branch: master
-    # commit: e75da7cc83393b174220b808d96f8f05ab7ad4d2
+    commit: e75da7cc83393b174220b808d96f8f05ab7ad4d2
     path: "sources/meta-browser"
     layers:
       meta-chromium:
