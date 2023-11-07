@@ -1,0 +1,6 @@
+{
+    "bitbake.machine": "reterminal",
+    "bitbake.distro": "estalor",
+    "bitbake.oeInitBuildEnvPath": "${workspaceFolder}/sources/poky/oe-init-build-env",
+    "bitbake.bitbakePath": "${workspaceFolder}/sources/poky/bitbake/",
+}
