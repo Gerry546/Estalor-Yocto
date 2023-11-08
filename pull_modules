@@ -1,0 +1,20 @@
+!#/bin/bash
+
+set -e
+
+echo "Updating modules..."
+cd sources/meta-browser
+git fetch origin master
+cd ../meta-clang
+git fetch origin mickledore
+cd ../meta-openembedded
+git fetch origin mickledore
+cd ../meta-raspberrypi
+git fetch origin mickledore
+cd ../meta-rauc
+git fetch origin mickledore
+cd ../poky
+git fetch origin mickledore
+cd ../..
+
+echo "Done"

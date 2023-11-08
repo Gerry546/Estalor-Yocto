@@ -17,7 +17,7 @@ repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
     branch: mickledore
-    commit: 9d5a1d14c9c5ab190c5b3f0919571c5d276e5bf3
+    commit: 6c3c62ebc171e16a45f55f276a83a32db075794e
     layers:
       meta:
     path: "sources/poky"
@@ -25,7 +25,7 @@ repos:
   meta-openembedded:
     url: "https://github.com/openembedded/meta-openembedded.git"
     branch: mickledore
-    commit: 922f41b39f364e5b6be596b4b51e0fb37ffe1971
+    commit: 39968837196cb48209b71e8852dd04a2f8ccdca8
     layers:
       meta-oe:
       meta-python:
