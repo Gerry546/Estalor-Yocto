@@ -17,7 +17,7 @@ repos:
   poky:
     url: "https://git.yoctoproject.org/git/poky"
     branch: mickledore
-    commit: 6c3c62ebc171e16a45f55f276a83a32db075794e
+    commit: b8bb4e6cb0b531507ec26d569f1f6c3e7a5aeaf0
     layers:
       meta:
     path: "sources/poky"
