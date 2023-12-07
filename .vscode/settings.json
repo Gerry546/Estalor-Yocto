@@ -1,6 +1,11 @@
 {
-    "bitbake.machine": "reterminal",
-    "bitbake.distro": "estalor",
-    "bitbake.oeInitBuildEnvPath": "${workspaceFolder}/sources/poky/oe-init-build-env",
-    "bitbake.bitbakePath": "${workspaceFolder}/sources/poky/bitbake/",
+    "bitbake.pathToBuildFolder": "${workspaceFolder}/build",
+    "bitbake.pathToEnvScript": "${workspaceFolder}/sources/poky/oe-init-build-env",
+    "bitbake.pathToBitbakeFolder": "${workspaceFolder}/sources/poky/bitbake"
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/sources/poky/bitbake/lib"
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/sources/poky/bitbake/lib"
+    ],
 }
