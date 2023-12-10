@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM catthehacker/ubuntu:act-22.04
 
 # Get all mickledore dependencies
 RUN apt-get update 
@@ -7,10 +7,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install gawk wget git diffstat \
     python3-pip python3-pexpect xz-utils debianutils iputils-ping \
     python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
     python3-subunit mesa-common-dev zstd liblz4-tool file locales sudo
-
-# Installs for Jenkins access to the container via ssh
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    openssh-server openjdk-11-jdk
 
 # Installs for host tooling needed for running menuconfig
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -46,18 +42,4 @@ RUN groupadd -g $host_gid $USER_NAME && useradd -g $host_gid -m -s /bin/bash -u 
 
 RUN echo ${USER_NAME}:${USER_NAME} | chpasswd
 
-WORKDIR /home/${USER_NAME}
-ADD wpa_supplicant-nl80211-wlan0.conf /home/yocto
-ADD id_ed25519 /home/yocto
-ADD id_ed25519.pub /home/yocto
-
-# Installing KAS for Yocto
-RUN pip install --upgrade wheel pip \
-    && echo 'Cython < 3' > /tmp/constraint.txt \
-    && PIP_CONSTRAINT=/tmp/constraint.txt pip wheel PyYAML==5.4.1 \
-    && pip install kas
-
-RUN service ssh start
-USER root
-EXPOSE 22
-CMD ["/usr/sbin/sshd","-D"]
+USER yocto
