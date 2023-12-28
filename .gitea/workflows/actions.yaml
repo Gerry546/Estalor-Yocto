@@ -94,11 +94,11 @@ jobs:
           echo "$WIFI_KEY" > layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
           bitbake estalor-reterminal-bundle-debug estalor-image-debug
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: Reterminal
-          path: |
-            ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-reterminal-bundle-debug.raucb
-            ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bmap
-            ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bz2
+      # - name: Upload Artifacts
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: Reterminal
+      #     path: |
+      #       ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-reterminal-bundle-debug.raucb
+      #       ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bmap
+      #       ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bz2
