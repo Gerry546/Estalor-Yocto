@@ -10,6 +10,7 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-openembedded/meta-oe \
   ##OEROOT##/../meta-openembedded/meta-python \
   ##OEROOT##/../meta-openembedded/meta-networking \
+  ##OEROOT##/../meta-openembedded/meta-filesystems \
   ##OEROOT##/../meta-rauc \
   ##OEROOT##/../meta-raspberrypi \
   ##OEROOT##/../meta-clang \

@@ -8,9 +8,10 @@ DEPENDS:append:qemuarm64 = " \
 SRC_URI:append:qemuarm64 = " \
     file://boot-qemu.cmd.in \
     file://fw_env.config \
-    file://0001-Enable-uboot-via-virtio.patch \
-    file://0001-cleaned-up-boot-commands.patch \
 "
+
+# file://0001-Enable-uboot-via-virtio.patch
+# file://0001-cleaned-up-boot-commands.patch
 
 SRC_URI:append:reterminal = " \
     file://0001-Clean-boot-options.patch \
