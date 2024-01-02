@@ -102,3 +102,21 @@ jobs:
       #       ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-reterminal-bundle-debug.raucb
       #       ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bmap
       #       ${{ gitea.workspace }}/build/tmp/deploy/images/reterminal/estalor-image-debug-reterminal.wic.bz2
+
+  Clean-Up-Cache:
+    runs-on: yocto-builder
+    container:
+      volumes:
+        - /cache/:/cache/
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          PUBLICKEY: ${{ secrets.PUBLIC_KEY }}
+          WIFI_KEY: ${{ secrets.WIFI_KEY }}
+      - name: Clean SState Cache
+        run: |
+          ./sources/poky/scripts/sstate-cache-management.sh --cache-dir=/cache/sstate --extra-layer=layers/meta-estalor-distro,layers/meta-estalor-distro,layers/meta-estalor -y -d -v
