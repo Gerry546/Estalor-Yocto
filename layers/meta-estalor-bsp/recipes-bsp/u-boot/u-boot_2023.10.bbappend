@@ -8,16 +8,17 @@ DEPENDS:append:qemuarm64 = " \
 SRC_URI:append:qemuarm64 = " \
     file://boot-qemu.cmd.in \
     file://fw_env.config \
+    file://qemu_estalor_arm64_defconfig;subdir=git/configs/ \
 "
 
-# file://0001-Enable-uboot-via-virtio.patch
 # file://0001-cleaned-up-boot-commands.patch
 
 SRC_URI:append:reterminal = " \
-    file://0001-Clean-boot-options.patch \
-    file://0001-place-uboot_env-in-boot-parts.patch \
     file://fw_env.config \
 "
+
+# file://0001-Clean-boot-options.patch
+# file://0001-place-uboot_env-in-boot-parts.patch
 
 do_configure:append:qemuarm64() {
     sed -e 's/@@KERNEL_IMAGETYPE@@/${KERNEL_IMAGETYPE}/' \
