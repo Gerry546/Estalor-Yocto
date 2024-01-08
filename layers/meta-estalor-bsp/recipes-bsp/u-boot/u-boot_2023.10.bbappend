@@ -11,8 +11,6 @@ SRC_URI:append:qemuarm64 = " \
     file://qemu_estalor_arm64_defconfig;subdir=git/configs/ \
 "
 
-# file://0001-cleaned-up-boot-commands.patch
-
 SRC_URI:append:reterminal = " \
     file://fw_env.config \
 "
