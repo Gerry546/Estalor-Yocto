@@ -16,7 +16,5 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-clang \
   ##OEROOT##/../meta-browser/meta-chromium \
   ##OEROOT##/../meta-homeassistant \
-  ##OEROOT##/../../layers/meta-estalor-bsp \
-  ##OEROOT##/../../layers/meta-estalor-distro \
   ##OEROOT##/../../layers/meta-estalor \
   "
