@@ -6,15 +6,15 @@ echo "Updating modules..."
 cd sources/meta-browser
 git fetch origin master
 cd ../meta-clang
-git fetch origin mickledore
+git fetch origin master
 cd ../meta-openembedded
-git fetch origin mickledore
+git fetch origin master
 cd ../meta-raspberrypi
-git fetch origin mickledore
+git fetch origin master
 cd ../meta-rauc
-git fetch origin mickledore
+git fetch origin master
 cd ../poky
-git fetch origin mickledore
+git fetch origin master
 cd ../..
 
 echo "Done"

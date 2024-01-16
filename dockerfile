@@ -42,3 +42,8 @@ RUN apt-get update -y \
     && echo ${USER_NAME}:${USER_NAME} | chpasswd
 
 USER ${USER_NAME}
+
+WORKDIR /
+COPY sources/poky/bitbake/toaster-requirements.txt /
+RUN pip3 install --user -r /toaster-requirements.txt
+EXPOSE 8000

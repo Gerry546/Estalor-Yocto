@@ -9,60 +9,49 @@ The goal of the project is to provide custom Linux based solutions for various d
 To get started first we will need some build tools.
 Ensure you have everything installed per the requirements for the [Yocto/OpenEmbedded project](https://docs.yoctoproject.org/).
 
-## Kas
-Next up, we will use [Kas](https://kas.readthedocs.io/en/3.2.3/) as a setup tool. Kas is a Python tool so in order to not pollute the host you are working on we will configure a virtual environment.
-
-    $ python3 -m venv .venv
-    $ source .venv/bin/activate
-    $ pip3 install kas
-
 ## Shared state directories
-This repository assumes you will be using a shared sstate and downloads folder outside of your regular build directory. These are specified in the file [common-kas.yml](kas/include/common-kas.yml). You can either create these directories on your system or overwrite these paths in your own build.
+This repository assumes you will be using a shared sstate and downloads folder outside of your regular build directory. You can either create these directories on your system or overwrite these paths in your own build.
 
 ## Dockerfile
 A dockerfile has been created to allow for consistently having the same build environment.
 A docker image can be created using:
 
     $ cd utils
-    $ sudo docker build --no-cache --tag "estalor-yocto:latest" .
+    $ docker build --no-cache --tag "estalor-yocto:latest" .
 
 Note that when using a docker container with mounted volumes that PUID and GUID on the host and container should be identical. So you could also build it using:
 
-    $ sudo docker build --no-cache --build-arg "host_uid=$(id -u)" --build-arg "host_gid=$(id -g)" --tag "estalor-yocto:latest" .
+    $ docker build --no-cache --build-arg "host_uid=$(id -u)" --build-arg "host_gid=$(id -g)" --tag "estalor-yocto:latest" .
 
 
 After the build is constructed you can run the docker image from the root directory using: 
 
-    $ ssh yocto@localhost
-
-The password is `yocto`.
+    $ docker run -it --name yocto-local -v .:/<projectpath> -v /cache:/cache estalor-yocto:latest /bin/bash
+    $ docker exec -it yocto-local /bin/bash
 
 # Compiling
-To build everything we use, as described `kas`.
-To kick off a build you can run:
+To build everything we use, as described a docker container.
+For this project a custom template configuration has been created. This can be found at:
 ```
-$ python3 -m kas build kas/<image>.yml
-```
-There are several images available and they will be describe in the following sections.
-Furthermore there are the layers in the sources folder so if you can always do the normal way of using yocto by:
-```
-$ source sources/poky/oe-init-build-env
+$ TEMPLATECONF=<projectpath>/layers/meta-estalor/conf/templates/estalor
 ```
 
-There is a variety of omages which can be build.
+To use this you need to either export the above variable or pass it directly in the source command like:
+```
+$ TEMPLATECONF=<projectpath>/layers/meta-estalor/conf/templates/estalor source sources/poky/oe-init-build-env
+```
 
-Homeassistant images build `core-image-homeassistant` which is a basic core image with just the essential of getting homeassistant running. Mainly used for tests.
+There is a variety of images which can be build.
+- `core-image-homeassistant`
+A basic image which is a basic core image with just the essential of getting homeassistant running. 
+- `estalor-image`
+Images implement the full set of features such as RAUC A/B update mechanism, homeassistant etc.
 
-1. estalor-homeassistant-arm64-a53
-2. estalor-homeassistant-arm64-a72
-3. estalor-homeassistant-x86-64
+Furthermore there is a variety of machines which can be build:
+- `qemuarm64-a72`
+- `qemux86-64`
+- `reterminal`
 
-Qemu images build the `estalor-image` and implement the full experience in qemu such as RAUC A/B update mechanism, homeassistant etc.
-1. estalor-qemuarm64-a53
-2. estalor-qemuarm64-a72
-
-Reterminal image which is aimed at providing an `estalor-image` and bundles for a Seeed Studio Reterminal.
-1. estalor-aarch64-reterminal
 
 # Image: estalor-qemuarm64-xxx,
 One of the regular targets for the Estalor projects is a variety of Raspberry Pi 3 or 4 based products. To facilitate testing with this easily
@@ -169,3 +158,6 @@ you can flash it via this way:
       $ sudo bmaptool copy estalor-image-reterminal.wic.bz2 /dev/sda
 
 - If it is done, unplug the reterminal, flip the boot switch and boot again. It should now boot normally.
+
+# Other topics
+## Patching U-boot

@@ -1,5 +1,6 @@
 .venv
 build
+toaster.sqlite
 wpa_supplicant-nl80211-wlan0.conf
 id_ed25519
 id_ed25519.pub

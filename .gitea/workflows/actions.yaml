@@ -21,8 +21,8 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519
           echo "$PUBLIC_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519.pub
-          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor
-          echo "$WIFI_KEY" > layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
+          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor
+          echo "$WIFI_KEY" > layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
           MACHINE=qemuarm64-a72 bitbake core-image-homeassistant
 
@@ -44,8 +44,8 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519
           echo "$PUBLIC_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519.pub
-          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor
-          echo "$WIFI_KEY" > layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
+          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor
+          echo "$WIFI_KEY" > layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
           MACHINE=qemux86-64 bitbake core-image-homeassistant
 
@@ -67,8 +67,8 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519
           echo "$PUBLIC_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519.pub
-          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor
-          echo "$WIFI_KEY" > layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
+          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor
+          echo "$WIFI_KEY" > layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
           MACHINE=qemuarm64-a72 bitbake estalor-qemuarm64-bundle-debug estalor-image-debug
 
@@ -90,8 +90,8 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519
           echo "$PUBLIC_KEY" > layers/meta-estalor/recipes-connectivity/openssh/openssh/id_ed25519.pub
-          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor
-          echo "$WIFI_KEY" > layers/meta-estalor-distro/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
+          mkdir -p ${{ gitea.workspace }}/layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor
+          echo "$WIFI_KEY" > layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
           bitbake estalor-reterminal-bundle-debug estalor-image-debug
       # - name: Upload Artifacts
@@ -119,4 +119,4 @@ jobs:
           WIFI_KEY: ${{ secrets.WIFI_KEY }}
       - name: Clean SState Cache
         run: |
-          ./sources/poky/scripts/sstate-cache-management.sh --cache-dir=/cache/sstate --extra-layer=layers/meta-estalor-distro,layers/meta-estalor-distro,layers/meta-estalor -y -d -v
+          python3 ${{ gitea.workspace }}/sources/poky/scripts/sstate-cache-management.py --cache-dir=/cache/sstate -y -d -v
