@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 set -e
 
@@ -15,6 +15,8 @@ cd ../meta-rauc
 git fetch origin master
 cd ../poky
 git fetch origin master
+cd ../meta-homeassistant
+git fetch origin main
 cd ../..
 
 echo "Done"
