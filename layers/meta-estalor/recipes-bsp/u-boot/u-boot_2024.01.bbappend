@@ -8,7 +8,6 @@ DEPENDS:append:qemuarm64 = " \
 SRC_URI:append:qemuarm64 = " \
     file://boot-qemu.cmd.in \
     file://fw_env.config \
-    file://qemu_estalor_arm64_defconfig;subdir=git/configs/ \
 "
 
 SRC_URI:append:reterminal = " \
