@@ -49,5 +49,7 @@ fi
 fatload mmc 0:${kernel_partition} ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
 if test ! -e mmc 0:${bootpart} uboot.env; then saveenv; fi;
 
+setenv bootargs "${bootargs} loglevel=3"
+
 # Now actually boot the system
 @@KERNEL_BOOTCMD@@ ${kernel_addr_r} - ${fdt_addr}
