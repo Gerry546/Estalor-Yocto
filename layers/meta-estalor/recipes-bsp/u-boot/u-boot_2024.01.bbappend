@@ -8,15 +8,13 @@ DEPENDS:append:qemuarm64 = " \
 SRC_URI:append:qemuarm64 = " \
     file://boot-qemu.cmd.in \
     file://fw_env.config \
-    file://qemu_estalor_arm64_defconfig;subdir=git/configs/ \
+    file://virtio_support.cfg \
 "
 
 SRC_URI:append:reterminal = " \
     file://fw_env.config \
+    file://emmc_environment.cfg \
 "
-
-# file://0001-Clean-boot-options.patch
-# file://0001-place-uboot_env-in-boot-parts.patch
 
 do_configure:append:qemuarm64() {
     sed -e 's/@@KERNEL_IMAGETYPE@@/${KERNEL_IMAGETYPE}/' \
