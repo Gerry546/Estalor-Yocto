@@ -1,5 +1,6 @@
 .venv
 build
+HACore
 toaster.sqlite
 wpa_supplicant-nl80211-wlan0.conf
 id_ed25519
