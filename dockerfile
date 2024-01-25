@@ -14,6 +14,7 @@ RUN apt-get update -y \
     python3-pip python3-pexpect xz-utils debianutils iputils-ping \
     python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
     python3-subunit mesa-common-dev zstd liblz4-tool file locales sudo \
+    python2 \
     # Installs for host tooling needed for running menuconfig
     bison flex libncurses-dev tmux parted mtools dosfstools \
     # Install ssh server
