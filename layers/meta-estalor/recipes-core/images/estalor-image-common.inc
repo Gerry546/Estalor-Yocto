@@ -35,7 +35,8 @@ IMAGE_INSTALL:append:reterminal = "\
     linux-firmware-rpidistro-bcm43455 \
     weston \
     weston-init \
-    firefox \
+    chromium-ozone-wayland \
+    chromium-launch \
     button-handler \
 "
 

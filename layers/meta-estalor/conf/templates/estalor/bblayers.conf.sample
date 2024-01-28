@@ -14,7 +14,7 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-rauc \
   ##OEROOT##/../meta-raspberrypi \
   ##OEROOT##/../meta-clang \
-  ##OEROOT##/../meta-browser/meta-firefox \
+  ##OEROOT##/../meta-browser/meta-chromium \
   ##OEROOT##/../meta-homeassistant \
   ##OEROOT##/../../layers/meta-estalor \
   "
