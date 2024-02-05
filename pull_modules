@@ -9,13 +9,16 @@ cd ../meta-clang
 git fetch origin master
 cd ../meta-openembedded
 git fetch origin master
+git fetch origin master-next
 cd ../meta-raspberrypi
 git fetch origin master
 cd ../meta-rauc
 git fetch origin master
 cd ../poky
 git fetch origin master
+git fetch origin master-next
 cd ../meta-homeassistant
+git fetch upstream main
 git fetch origin main
 cd ../..
 

@@ -12,19 +12,8 @@ IMAGE_INSTALL = "\
     \
     python3-homeassistant \
     \
-    python3-homeassistant-axis \
-    python3-homeassistant-backup \
-    python3-homeassistant-cast \
-    python3-homeassistant-fritz \
-    python3-homeassistant-fritzbox \
-    python3-homeassistant-hacs \
-    python3-homeassistant-ipp \
-    python3-homeassistant-met \
-    python3-homeassistant-octoprint \
-    python3-homeassistant-radio-browser \
-    python3-homeassistant-shelly \
-    python3-homeassistant-tts \
-    python3-homeassistant-upnp \ 
+    weston \
+    weston-init \
 "
 
 IMAGE_INSTALL:append:reterminal = "\
@@ -33,18 +22,16 @@ IMAGE_INSTALL:append:reterminal = "\
     kernel-module-lis3lv02d \
     kernel-module-panel-ili9881d \
     linux-firmware-rpidistro-bcm43455 \
-    weston \
-    weston-init \
     chromium-ozone-wayland \
     chromium-launch \
     button-handler \
 "
 
 IMAGE_FEATURES = "\
+    weston \
 "
 
 IMAGE_FEATURES:append:reterminal = "\
-    weston \
 "
 
 IMAGE_LINGUAS = "\
