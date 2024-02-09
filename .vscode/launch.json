@@ -20,5 +20,21 @@
             "console": "integratedTerminal",
             "args": "-v ${command:pickArgs}"
         },
+        {
+            "name": "Parse Requirement, Upgrade Only, No Clean",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "sources/meta-homeassistant/scripts/parse_requirement.py",
+            "console": "integratedTerminal",
+            "args": "-v ${command:pickArgs} -u y -c n"
+        },
+        {
+            "name": "Parse Requirement, No Clean",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "sources/meta-homeassistant/scripts/parse_requirement.py",
+            "console": "integratedTerminal",
+            "args": "-v ${command:pickArgs} -c n"
+        },
     ]
 }
