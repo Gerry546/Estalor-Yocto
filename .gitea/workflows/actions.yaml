@@ -24,7 +24,7 @@ jobs:
           mkdir -p ${{ gitea.workspace }}/layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor
           echo "$WIFI_KEY" > layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
-          MACHINE=qemuarm64-a72 bitbake core-image-homeassistant
+          MACHINE=qemuarm64-a72 bitbake core-image-homeassistant-full
 
   Build-HomeAssistant-X86-64:
     runs-on: yocto-builder
@@ -47,7 +47,7 @@ jobs:
           mkdir -p ${{ gitea.workspace }}/layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor
           echo "$WIFI_KEY" > layers/meta-estalor/recipes-connectivity/wpa-supplicant/files/estalor/wpa_supplicant-nl80211-wlan0.conf
           TEMPLATECONF=${{ gitea.workspace }}/layers/meta-estalor/conf/templates/estalor . ${{ gitea.workspace }}/sources/poky/oe-init-build-env
-          MACHINE=qemux86-64 bitbake core-image-homeassistant
+          MACHINE=qemux86-64 bitbake core-image-homeassistant-full
 
   Build-Reterminal-Qemu:
     runs-on: yocto-builder
