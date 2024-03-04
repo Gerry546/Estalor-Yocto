@@ -14,7 +14,6 @@ RUN apt-get update -y \
     python3-pip python3-pexpect xz-utils debianutils iputils-ping \
     python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
     python3-subunit mesa-common-dev zstd liblz4-tool file locales sudo \
-    python2.7 \
     # Installs for host tooling needed for running menuconfig
     bison flex libncurses-dev tmux parted mtools dosfstools \
     # Install ssh server
@@ -22,6 +21,8 @@ RUN apt-get update -y \
     # Remove all old stuff
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/* \ 
+    # Install python packages
+    && python3 -m pip install tomli \
     # By default, Ubuntu uses dash as an alias for sh. Dash does not support the source command
     # needed for setting up Yocto build environments. Use bash as an alias for sh.
     && which dash &> /dev/null && (\
