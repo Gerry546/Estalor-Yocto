@@ -1,23 +1,21 @@
-LICENSE = "CLOSED"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI = " \
+inherit systemd
+
+SRC_URI:append = " \
     file://chromium.service.in \
 "
 
-S = "${WORKDIR}"
-
-inherit allarch systemd
+URL ?= "http\://localhost\:8123"
 
 RDEPENDS:${PN} += "weston-init"
 
-URL ?= "http\://localhost\:8123"
-
-do_compile() {
+do_compile:append() {
     sed -e "s:@@URL@@:${URL}:" \
     chromium.service.in > chromium.service
 }
 
-do_install() {
+do_install:append() {
     install -d ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/chromium.service ${D}${systemd_unitdir}/system
 }

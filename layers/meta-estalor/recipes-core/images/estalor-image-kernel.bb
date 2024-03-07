@@ -2,9 +2,10 @@
 # Copyright (C) 2021 Enrico Jorns <ejo@pengutronix.de>
 # Released under the MIT license (see COPYING.MIT for the terms)
 SUMMARY = "Kernel boot image"
-DESCRIPTION = "Image recipe which is used to populate a partition containing the boot scripts for uboot \
-               and the kernel image. Mainly aimed to circumvent the challenge of working with RPI products \
-               where the boot partition itself is adjusted in the boot scheme"
+DESCRIPTION = "\
+    Image recipe which is used to populate a partition containing the boot scripts for uboot \
+    and the kernel image. Mainly aimed to circumvent the challenge of working with RPI products \
+    where the boot partition itself is adjusted in the boot scheme"
 LICENSE = "MIT"
 
 inherit nopackages deploy

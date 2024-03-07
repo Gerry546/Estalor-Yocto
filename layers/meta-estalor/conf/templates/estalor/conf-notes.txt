@@ -3,4 +3,6 @@
 You can now run 'bitbake <target>'
 
 Common targets are:
-    core-image-homeassistant
+    estalor-image-debug
+    estalor-qemuarm64-bundle-debug
+    estalor-reterminal-bundle-debug
