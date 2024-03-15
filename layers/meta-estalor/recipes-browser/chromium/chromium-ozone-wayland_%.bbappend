@@ -12,7 +12,7 @@ RDEPENDS:${PN} += "weston-init"
 
 do_compile:append() {
     sed -e "s:@@URL@@:${URL}:" \
-    chromium.service.in > chromium.service
+    ${WORKDIR}/chromium.service.in > ${WORKDIR}/chromium.service
 }
 
 do_install:append() {
